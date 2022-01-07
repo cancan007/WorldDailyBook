@@ -8,10 +8,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,13 @@ public class Enter_Activity extends AppCompatActivity {
 
         handler = new SQLite_Handler(getApplicationContext());
 
+        Intent intent  = getIntent();
+        double d_lat = intent.getDoubleExtra("lat", 0);
+        double d_lng = intent.getDoubleExtra("lng", 0);
+
+        float lat = (float)d_lat;
+        float lng = (float)d_lng;
+
 
         loc_v = findViewById(R.id.location);
         date_v = findViewById(R.id.date);
@@ -37,6 +47,11 @@ public class Enter_Activity extends AppCompatActivity {
         lng_v = findViewById(R.id.e_longitude);
         lat_v = findViewById(R.id.e_latitude);
         content_v = findViewById(R.id.content);
+
+        //lng_v.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        lng_v.setText(Float.toString(lng));
+        lat_v.setText(Float.toString(lat));
+
 
 
 

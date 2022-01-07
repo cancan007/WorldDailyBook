@@ -23,7 +23,7 @@ public class Display_Content extends AppCompatActivity {
         setContentView(R.layout.activity_display_content);
 
         Intent intent = getIntent();
-        int position_data = intent.getIntExtra(MainActivity.POSITION_DATA, 0);
+        int position_data = intent.getIntExtra(ListActivity.POSITION_DATA, 0);
         Integer i = Integer.valueOf(position_data);
         String id = i.toString();
 

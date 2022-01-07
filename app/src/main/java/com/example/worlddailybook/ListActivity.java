@@ -23,7 +23,7 @@ import java.util.List;
 public class ListActivity extends AppCompatActivity {
 
 
-    public static final String POSITION_DATA = "com.example.worlddailyrecords.MainActivity";
+    public static final String POSITION_DATA = "com.example.worlddailyrecords.ListActivity";
     private SQLite_Handler handler;
     private SQLiteDatabase db;
     private Button createButton;

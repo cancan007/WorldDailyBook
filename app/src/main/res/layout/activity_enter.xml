@@ -88,7 +88,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Longitude"
-        android:inputType="numberDecimal"
+        android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_d" />
@@ -101,7 +101,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Latitude"
-        android:inputType="numberDecimal"
+        android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/e_longitude" />
