@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Enter_Activity extends AppCompatActivity {
@@ -36,6 +38,7 @@ public class Enter_Activity extends AppCompatActivity {
         Intent intent  = getIntent();
         double d_lat = intent.getDoubleExtra("lat", 0);
         double d_lng = intent.getDoubleExtra("lng", 0);
+
 
         float lat = (float)d_lat;
         float lng = (float)d_lng;

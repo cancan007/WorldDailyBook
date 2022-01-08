@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Display_Content extends AppCompatActivity {
 
-    private com.example.worlddailybook.SQLite_Handler handler;
+    private SQLite_Handler handler;
     private SQLiteDatabase db;
     //private Cursor c;
     private Button backButton;

@@ -3,6 +3,8 @@ package com.example.worlddailybook;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,6 +23,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private LatLng location;
+    private SQLiteDatabase db;
+    private SQLite_Handler handler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        handler = new SQLite_Handler(getApplicationContext());
+        db = handler.getReadableDatabase();
+        Cursor c = db.query(
+                handler.TABLE_NAME,
+                new String[]{"location", "date", "title", "longitude", "latitude", "content"},
+                //_id,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        c.moveToFirst();
+
+
         mMap = googleMap;
+
+        int num_datas = ListActivity.num_datas;
+        for (int i=0; i< num_datas; i++){
+            float f_lng = c.getFloat(c.getColumnIndex("longitude"));
+            float f_lat = c.getFloat(c.getColumnIndex("latitude"));
+            String c_date = c.getString(c.getColumnIndex("date"));
+
+            double lng = (double)f_lng;
+            double lat = (double)f_lat;
+
+            LatLng loc = new LatLng(lat, lng);
+            mMap.addMarker(new MarkerOptions().position(loc).title(c_date));
+        }
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
@@ -65,6 +98,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Intent intent = new Intent(getApplication(), Enter_Activity.class);
                 intent.putExtra("lat", location.latitude);
                 intent.putExtra("lng", location.longitude);
+                //intent.putExtra("date", date);
                 startActivity(intent);
             }
 

@@ -27,6 +27,7 @@ public class ListActivity extends AppCompatActivity {
     private SQLite_Handler handler;
     private SQLiteDatabase db;
     private Button createButton;
+    public static int num_datas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class ListActivity extends AppCompatActivity {
 
         //アダプタのセット
         SampleRecyclerAdapter adapter = new SampleRecyclerAdapter(loc_array);
+        num_datas = adapter.getItemCount();
         recyclerView.setAdapter(adapter);
 
         createButton = findViewById(R.id.m_create);
