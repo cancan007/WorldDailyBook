@@ -68,23 +68,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap = googleMap;
 
-        int num_datas = ListActivity.num_datas;
-        for (int i=0; i< num_datas; i++){
-            float f_lng = c.getFloat(c.getColumnIndex("longitude"));
-            float f_lat = c.getFloat(c.getColumnIndex("latitude"));
-            String c_date = c.getString(c.getColumnIndex("date"));
-
-            double lng = (double)f_lng;
-            double lat = (double)f_lat;
-
-            LatLng loc = new LatLng(lat, lng);
-            mMap.addMarker(new MarkerOptions().position(loc).title(c_date));
-        }
-
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+        for (int i=0; i< c.getCount(); i+=1){
+            float f_lng = c.getFloat(c.getColumnIndex("Longitude"));
+            //String f_lng = c.getString(c.getColumnIndex("Longitude"));
+            float f_lat = c.getFloat(c.getColumnIndex("Latitude"));
+            //String f_lat = c.getString(c.getColumnIndex("Latitude"));
+            String location = c.getString(c.getColumnIndex("Location"));
+            String c_date = c.getString(c.getColumnIndex("Date"));
+
+            double lng = (double)f_lng;
+            double lat = (double)f_lat;
+            //double lng = Double.valueOf(f_lng);
+            //double lat = Double.valueOf(f_lat);
+
+            LatLng loc = new LatLng(lat, lng);
+            mMap.addMarker(new MarkerOptions().position(loc).title(c_date).snippet(location)).showInfoWindow();
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            c.moveToNext();
+        }
+        c.close();
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
             @Override
