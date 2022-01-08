@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class Display_Content extends AppCompatActivity {
 
     private SQLite_Handler handler;
@@ -64,8 +66,16 @@ public class Display_Content extends AppCompatActivity {
         TextView d_title = findViewById(R.id.d_title);
         d_title.setText(c.getString(2));
 
+        TextView d_lng = findViewById(R.id.d_longitude);
+        //d_lng.setText(c.getString(c.getColumnIndex("longitude")));
+        d_lng.setText(c.getString(3));
+
+        TextView d_lat = findViewById(R.id.d_latitude);
+        //d_lat.setText(c.getString(c.getColumnIndex("latitude")));
+        d_lat.setText(c.getString(4));
+
         TextView d_con = findViewById(R.id.d_content);
-        d_con.setText(c.getString(3));
+        d_con.setText(c.getString(5));
 
         c.close();
 

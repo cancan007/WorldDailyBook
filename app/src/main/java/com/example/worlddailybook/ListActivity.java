@@ -32,7 +32,7 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list);
 
         handler = new SQLite_Handler(getApplicationContext());
         db = handler.getReadableDatabase();
