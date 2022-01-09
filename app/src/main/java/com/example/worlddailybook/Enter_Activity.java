@@ -50,7 +50,6 @@ public class Enter_Activity extends AppCompatActivity {
         lng_v = findViewById(R.id.e_longitude);
         lat_v = findViewById(R.id.e_latitude);
         content_v = findViewById(R.id.content);
-
         //lng_v.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
         lng_v.setText(Float.toString(lng));
         lat_v.setText(Float.toString(lat));

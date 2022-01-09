@@ -22,7 +22,6 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
-
     public static final String POSITION_DATA = "com.example.worlddailyrecords.ListActivity";
     private SQLite_Handler handler;
     private SQLiteDatabase db;
@@ -36,8 +35,6 @@ public class ListActivity extends AppCompatActivity {
 
         handler = new SQLite_Handler(getApplicationContext());
         db = handler.getReadableDatabase();
-        //handler.onCreate(db);
-        //Enter_Activity EA = new Enter_Activity();
 
         final RecyclerView recyclerView = findViewById(R.id.recyclerview1);
         //LayoutManagerを設定
@@ -52,7 +49,6 @@ public class ListActivity extends AppCompatActivity {
 
         //DataBaseから表示するデータの配列を取ってくる
         String[] loc_array = readData();
-
 
         //アダプタのセット
         SampleRecyclerAdapter adapter = new SampleRecyclerAdapter(loc_array);
@@ -125,6 +121,7 @@ public class ListActivity extends AppCompatActivity {
         class SampleViewHolder extends RecyclerView.ViewHolder {
             TextView text01;
 
+            // コンストラクタ
             SampleViewHolder(@NonNull View itemView) {
                 super(itemView);
                 text01 = itemView.findViewById(R.id.text01);

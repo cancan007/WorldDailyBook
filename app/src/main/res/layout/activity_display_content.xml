@@ -47,7 +47,7 @@
         android:hint="CONTENT"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_latitude" />
+        app:layout_constraintTop_toBottomOf="@+id/d_longitude" />
 
     <Button
         android:id="@+id/d_backButton"
@@ -80,7 +80,7 @@
         android:hint="LONGITUDE"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_title" />
+        app:layout_constraintTop_toBottomOf="@+id/d_latitude" />
 
     <TextView
         android:id="@+id/d_latitude"
@@ -91,5 +91,5 @@
         android:hint="LATITUDE"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_longitude" />
+        app:layout_constraintTop_toBottomOf="@+id/d_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

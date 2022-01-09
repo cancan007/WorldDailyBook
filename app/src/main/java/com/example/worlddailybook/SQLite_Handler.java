@@ -50,8 +50,10 @@ public class SQLite_Handler extends SQLiteOpenHelper {
         db.execSQL(
                 SQL_CREATE_TABLE
         );
-        saveData(db, "Tokyo", date, "Capital", 34.41f, 139.46f,"First Test");
-        saveData(db, "Germany", date, "Travel", 51.17f, 10.45f ,"Great Travel");
+        //saveData(db, "Tokyo", date, "Capital", 34.41f, 139.46f,"First Test");
+        //saveData(db, "Germany", date, "Travel", 51.17f, 10.45f ,"Great Travel");
+        saveData(db, "Tokyo", date, "Capital", 139.46f,34.41f, "First Test");
+        saveData(db, "Germany", date, "Travel", 10.45f ,51.17f, "Great Travel");
     }
 
     @Override
